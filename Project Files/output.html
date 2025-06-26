@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Open Sans', sans-serif;
+            color: #2c3e50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .result-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .butterfly-img {
+            max-width: 300px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 25px;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background-color: #1f6390;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>Prediction Result</h1>
+
+        <!-- Show the uploaded butterfly image -->
+        <img src="{{ url_for('static', filename='images/' + user_image) }}"
+        alt="Uploaded Butterfly Image" class="butterfly-img">
+
+        <!-- Show the predicted butterfly species -->
+        <h2>Predicted Species: <strong>{{ butterfly }}</strong></h2>
+
+        <!-- Navigation Buttons -->
+        <a href="{{ url_for('input_page') }}" class="btn">Classify Another</a>
+        <a href="{{ url_for('main_index') }}" class="btn">Home</a>
+    </div>
+</body>
+</html>
